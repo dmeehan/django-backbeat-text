@@ -14,7 +14,7 @@ except (IOError, OSError):
 
 setup(
     name='django-backbeat-blocks',
-    version=contacts.get_version(),
+    version=blocks.get_version(),
     description='A pluggable app for managing text content.',
     long_description=long_description,
     author='Douglas Meehan',
