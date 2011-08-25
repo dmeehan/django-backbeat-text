@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import contacts
+import blocks
 import os
 
 try:
@@ -13,14 +13,14 @@ except (IOError, OSError):
     reqs = ''
 
 setup(
-    name='django-backbeat-contacts',
+    name='django-backbeat-blocks',
     version=contacts.get_version(),
-    description='A pluggable contact management app.',
+    description='A pluggable app for managing text content.',
     long_description=long_description,
     author='Douglas Meehan',
     author_email='dmeehan@gmail.com',
     include_package_data=True,
-    url='http://github.com/dmeehan/django-backbeat-contacts',
+    url='http://github.com/dmeehan/django-backbeat-blocks',
     packages=find_packages(),
     classifiers=[
         'Framework :: Django',
