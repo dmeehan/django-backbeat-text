@@ -103,7 +103,12 @@ class PostMixin(models.Model):
     # metadata
     posted_by = models.ForeignKey(User)
     date_published = models.DateTimeField(default=datetime.datetime.now)
+    featured = models.BooleanField(default=False)
     slug = models.SlugField(unique_for_date='date_published')
+
+    #auto-generated fields
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
@@ -111,6 +116,7 @@ class PostMixin(models.Model):
 
 
 class PostBase(PostMixin, StatusMixin):
+
     class Meta:
         abstract = True
 
