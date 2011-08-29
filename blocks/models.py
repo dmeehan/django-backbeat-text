@@ -113,6 +113,13 @@ class PostMixin(models.Model):
     class Meta:
         abstract = True
         ordering = ['-date_published']
+        get_latest_by = 'date_published'
+
+    def get_previous_post(self):
+        return self.get_previous_by_date_published(status=self.STATUS_LIVE)
+
+    def get_next_post(self):
+        return self.get_next_by_date_published(status=self.STATUS_LIVE)
 
 
 class PostBase(PostMixin, StatusMixin):
