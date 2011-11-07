@@ -10,6 +10,8 @@ from django.contrib.auth.models import User
 from django.db.models import permalink
 from django.utils.html import strip_tags
 
+from blocks.managers import PostManager
+
 
 class TextBlockBase(models.Model):
     """
