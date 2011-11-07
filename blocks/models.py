@@ -124,6 +124,8 @@ class PostMixin(models.Model):
 
 class PostBase(PostMixin, StatusMixin):
 
+    objects = PostManager()
+
     class Meta:
         abstract = True
 

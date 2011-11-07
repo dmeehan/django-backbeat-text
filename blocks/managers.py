@@ -5,7 +5,7 @@ from datetime import datetime
 from django.db import models
 from django.db.models.query import QuerySet
 
-class EntryMixin(object):
+class PostMixin(object):
     def live(self):
         return self.get_query_set().filter(status=self.model.STATUS_LIVE)
 
@@ -16,9 +16,9 @@ class EntryMixin(object):
         return self.get_query_set().filter(status=self.model.STATUS_LIVE)\
                                    .filter(date_published__lte=datetime.now)
 
-class EntryQuerySet(QuerySet, EntryMixin):
+class PostQuerySet(QuerySet, PostMixin):
     pass
 
-class EntryManager(models.Manager, EntryMixin):
+class PostManager(models.Manager, PostMixin):
     def get_query_set(self):
-        return EntryQuerySet(self.model, using=self._db)
+        return PostQuerySet(self.model, using=self._db)
