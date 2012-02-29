@@ -1,4 +1,4 @@
-# blocks/managers.py
+# text/managers.py
 
 from datetime import datetime
 

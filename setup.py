@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import blocks
+import text
 import os
 
 try:
@@ -13,14 +13,14 @@ except (IOError, OSError):
     reqs = ''
 
 setup(
-    name='django-backbeat-blocks',
-    version=blocks.get_version(),
+    name='django-backbeat-text',
+    version=text.get_version(),
     description='A pluggable app for managing text content.',
     long_description=long_description,
     author='Douglas Meehan',
     author_email='dmeehan@gmail.com',
     include_package_data=True,
-    url='http://github.com/dmeehan/django-backbeat-blocks',
+    url='http://github.com/dmeehan/django-backbeat-text',
     packages=find_packages(),
     classifiers=[
         'Framework :: Django',

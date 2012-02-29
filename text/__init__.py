@@ -1,4 +1,4 @@
-# blocks/__init_.py
+# text/__init_.py
 
 __version_info__ = {
     'major': 0,
