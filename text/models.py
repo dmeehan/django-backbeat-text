@@ -8,7 +8,7 @@ from django.db.models import permalink
 from django.contrib.auth.models import User
 from django.db.models import permalink
 
-from text.managers import PostManager
+from text.managers import EntryManager
 
 class TitleBase(models.Model):
     """
@@ -39,7 +39,6 @@ class ArticleBase(TitleBase, BlurbBase):
         An abstract content block with a title, text blurb, and excerpt.
     """
     excerpt = models.TextField()
-    slug = models.SlugField(unique_for_date='date_published')
 
     class Meta:
         abstract=True
@@ -73,8 +72,6 @@ class PostMixin(models.Model):
         A mixin for a catalogued content type.
     """
 
-    objects = PostManager()
-
     # metadata
     author = models.ForeignKey(User)
     published = models.DateTimeField(default=datetime.datetime.now)
@@ -99,9 +96,12 @@ class EntryBase(ArticleBase, StatusMixin, PostMixin):
     """
         An article with status and post information
     """
+    objects = EntryManager()
+
+    slug = models.SlugField(unique_for_date='published')
+
     class Meta:
         abstract = True
-
 
     
 
