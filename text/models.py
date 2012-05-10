@@ -83,7 +83,7 @@ class PostMixin(models.Model):
     class Meta:
         abstract = True
         ordering = ['-published']
-        get_latest_by = 'published'
+        get_latest_by = '-published'
 
     def get_previous(self):
         return self.get_previous_by_published(status=self.STATUS_LIVE)
